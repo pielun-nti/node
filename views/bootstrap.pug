@@ -1,11 +1,52 @@
 extends layout
 
+include mixins/carousel.pug
+include mixins/cards.pug
+
 block content
   div.container#main
+  - var hello = 'you!'
   h1= thetitle
   p
-  | Welcome to #{thetitle}
+  | Welcome to #{thetitle}, #{hello.toUpperCase()}
   br
   small.text-muted With faded secondary text
+  br
+  #carouselExampleFade.carousel.slide.carousel-fade(data-ride='carousel')
+    .carousel-inner
+      +carousel-item('images/katt.jpg', '...')(class='active')
+      +carousel-item('https://picsum.photos/800/401', '...')
+      +carousel-item('https://picsum.photos/800/402', '...')
+
+    a.carousel-control-prev(href='#carouselExampleFade', role='button', data-slide='prev')
+      span.carousel-control-prev-icon(aria-hidden='true')
+      span.sr-only Previous
+    a.carousel-control-next(href='#carouselExampleFade', role='button', data-slide='next')
+      span.carousel-control-next-icon(aria-hidden='true')
+      span.sr-only Next
+
+  .container.mt-5
+    .card-deck
+      +card('images/katt.jpg', '...', 'Amazing mixins', '3 mins')
+        p.card-text
+          | This is a wider card with supporting text below as a natural lead-in to additional
+          | content.
+          | This content is a little bit longer.
+        p.card-text
+          | This is a wider card with supporting text below as a natural lead-in to additional
+          | content.
+          | This content is a little bit longer.
+
+      +card('images/katt.jpg', '...', 'Amazing mixins', '5 mins')
+        p.card-text
+          | This is a wider card with supporting text below as a natural lead-in to additional
+          | content.
+          | This content is a little bit longer.
+
+      +card('images/katt.jpg', '...', 'Amazing mixins', '23 mins')
+        p.card-text
+          | This is a wider card with supporting text below as a natural lead-in to additional
+          | content.
+          | This content is a little bit longer.
 
 

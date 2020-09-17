@@ -1,1 +1,7 @@
-console.log("hi");
+window.onload = loadedJS()
+
+function loadedJS(){
+    console.log("loaded")
+
+}
+
