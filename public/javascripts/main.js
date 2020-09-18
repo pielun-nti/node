@@ -7,4 +7,8 @@ function loadedJS(){
 
 function showAlert(){
     alert("hi alert!")
+    $('.toast').toast('show')
+    $('.toast').on('show.bs.toast', function () {
+        console.log("show toast!")
+      })
 }
