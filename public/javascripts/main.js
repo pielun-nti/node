@@ -5,3 +5,6 @@ function loadedJS(){
 
 }
 
+function showAlert(){
+    alert("hi alert!")
+}

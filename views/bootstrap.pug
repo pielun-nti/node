@@ -2,16 +2,26 @@ extends layout
 
 include mixins/carousel.pug
 include mixins/cards.pug
+include mixins/toast.pug
 
 block content
   div.container#main
   - var hello = 'you!'
   h1= thetitle
-  p#welcome
-  | Welcome to #{thetitle}, #{hello.toUpperCase()}
-  br
+  p.welcome Welcome to #{thetitle}, #{hello.toUpperCase()}
   small.text-muted#fadedundertitle With faded secondary text
   br
+  .spinner-border.text-primary(role='status')
+  span.sr-only Loading...
+  br
+  br
+  a.btn.btn-primary.btn-lg(class="btn" onclick='showAlert()', role='button') Learn more
+  br
+  br
+  .toast(role='alert', aria-live='assertive', aria-atomic='true')
+  +toast("Detta är Toast titeln", "57", "Detta är toast content", "Detta är toast body")
+
+
   #carouselExampleFade.carousel.slide.carousel-fade(data-ride='carousel')
     .carousel-inner
       +carousel-item('images/katt.jpg', '...')(class='active')
